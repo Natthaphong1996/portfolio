@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natthaphong Meesawad | Data Center Professional</title>
+    <meta name="description"
+        content="Portfolio of Natthaphong Meesawad (Nut), an IT professional with 6 years of experience specializing in WMS development and Tier 4 Data Center standards.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg-glow"></div>
+    <div class="grid-overlay"></div>
+
+    <nav>
+        <div class="container nav-content">
+            <a href="index.html" class="logo">natthaphong<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#about" data-i18n="nav_about">About</a></li>
+                <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
+                <li><a href="#datacenter" data-i18n="nav_datacenter">Data Center</a></li>
+                <li><a href="#power-systems" data-i18n="nav_power">Electrical</a></li>
+                <li><a href="#cooling-systems" data-i18n="nav_cooling">Cooling</a></li>
+                <li><a href="#fault-tolerance" data-i18n="nav_fault">Fault Tolerance</a></li>
+                <li><a href="#availability" data-i18n="nav_availability">Availability</a></li>
+                <li><a href="#network" data-i18n="nav_network">Network</a></li>
+                <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+                <li><a href="ip-calc.html" data-i18n="nav_calc" class="nav-btn-highlight">IP Calculator</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+                <button class="lang-btn" onclick="setLanguage('th')">TH</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="hero" class="hero section">
+            <div class="container hero-content">
+                <h2 class="sub-headline" data-i18n="hero_sub">Ready for the Next Evolution</h2>
+                <h1 class="headline" data-i18n="hero_hi">Hi, I'm <span class="highlight">Nut</span>.</h1>
+                <p class="description" data-i18n="hero_desc">
+                    6 Years in IT Industry • Programmer & Infrastructure Expert • <br>
+                    <strong>Deeply Passionate about Data Center Infrastructure.</strong>
+                </p>
+                <div class="hero-btns">
+                    <a href="#datacenter" class="btn btn-primary" data-i18n="hero_btn_dc">Tier 4 Expertise</a>
+                    <a href="#experience" class="btn btn-secondary" data-i18n="hero_btn_journey">View Journey</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1. Introduction (About) -->
+        <section id="about" class="about section">
+            <div class="container grid">
+                <div class="about-text">
+                    <h2 class="section-title" data-i18n="about_title">Introduction</h2>
+                    <p data-i18n="about_p1">"Hello, my name is <strong>natthaphong Meesawad</strong>..."</p>
+                    <p style="margin-top: 1.5rem;" data-i18n="about_p2">Currently, I am highly interested...</p>
+                </div>
+                <div class="quick-stats">
+                    <div class="stat-card">
+                        <h3>6</h3>
+                        <p data-i18n="stat_exp">Years IT Expertise</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>GULF</h3>
+                        <p data-i18n="stat_vision">Future Vision</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Work Experience -->
+        <section id="experience" class="experience section">
+            <div class="container">
+                <h2 class="section-title text-center" data-i18n="exp_title">Work Experience</h2>
+                <p class="text-center" style="max-width: 800px; margin: -2rem auto 3rem; color: var(--text-dim);"
+                    data-i18n="exp_p_desc">"I have nearly 6 years..."</p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="time" data-i18n="exp_time1">Last 2 Years</div>
+                        <div class="content">
+                            <h3 data-i18n="exp_role1">Programmer</h3>
+                            <h4 data-i18n="exp_company1">Siam Kyohwa</h4>
+                            <p data-i18n="exp_desc1">Designing and developing WMS...</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time" data-i18n="exp_time2">2 Years</div>
+                        <div class="content">
+                            <h3 data-i18n="exp_role2">Infrastructure Support</h3>
+                            <h4 data-i18n="exp_company2">The Mall Group</h4>
+                            <p data-i18n="exp_desc2">Ensuring stability...</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time" data-i18n="exp_time3">1 Year</div>
+                        <div class="content">
+                            <h3 data-i18n="exp_role3">ERP IT Support</h3>
+                            <h4 data-i18n="exp_company3">CHENGSI THAI</h4>
+                            <p data-i18n="exp_desc3">Initial experience...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Data Center Interest & Expertise -->
+        <section id="datacenter" class="datacenter section">
+            <div class="container">
+                <div class="dc-header">
+                    <h2 class="section-title" data-i18n="dc_title">Tier 4 Data Center Mastery</h2>
+                    <p class="section-subtitle" data-i18n="dc_subtitle">Although I don't have direct experience...</p>
+                </div>
+                <div class="pillars-grid">
+                    <div class="pillar-card border-glow">
+                        <div class="pillar-icon">⚡</div>
+                        <h3 data-i18n="dc_pillar1_t">Electrical Systems</h3>
+                        <p data-i18n="dc_pillar1_d">Requires a 2N+1 configuration...</p>
+                    </div>
+                    <div class="pillar-card border-glow">
+                        <div class="pillar-icon">❄️</div>
+                        <h3 data-i18n="dc_pillar2_t">Cooling Systems</h3>
+                        <p data-i18n="dc_pillar2_d">Must be Fault Tolerant...</p>
+                    </div>
+                    <div class="pillar-card border-glow">
+                        <div class="pillar-icon">🛡️</div>
+                        <h3 data-i18n="dc_pillar3_t">Fault Tolerance</h3>
+                        <p data-i18n="dc_pillar3_d">Goal is No Single Point of Failure...</p>
+                    </div>
+                    <div class="pillar-card border-glow">
+                        <div class="pillar-icon">🌐</div>
+                        <h3 data-i18n="dc_pillar4_t">Availability</h3>
+                        <p data-i18n="dc_pillar4_d">Aims for 99.995% uptime...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="power-systems" class="power-systems section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="infra_title">Critical Infrastructure Breakdown</h2>
+                <div class="power-grid">
+                    <div class="power-image-container">
+                        <img src="img/รูปแบบไฟฟ้า.png" alt="Power Diagram" class="power-diagram border-glow">
+                    </div>
+                    <div class="power-details">
+                                        <table class="styled-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n="table_h_item">#</th>
+                                        <th data-i18n="table_h_comp">Component</th>
+                                        <th data-i18n="table_h_desc">Key Function & Purpose</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td data-i18n="infra_item1_n"><strong>ATS</strong></td>
+                                        <td data-i18n="infra_item1_d">Switches power between utility and generator.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td data-i18n="infra_item2_n"><strong>Generator</strong></td>
+                                        <td data-i18n="infra_item2_d">Backup power during long outages.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3 & 5</td>
+                                        <td data-i18n="infra_item3_n"><strong>UPS & Batteries</strong></td>
+                                        <td data-i18n="infra_item3_d">Immediate backup & voltage stabilization.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td data-i18n="infra_item4_n"><strong>Chiller</strong></td>
+                                        <td data-i18n="infra_item4_d">Produces chilled water for cooling.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td data-i18n="infra_item6_n"><strong>IT Equipment</strong></td>
+                                        <td data-i18n="infra_item6_d">Core IT infrastructure.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td data-i18n="infra_item7_n"><strong>CRAH</strong></td>
+                                        <td data-i18n="infra_item7_d">Managed temperature and airflow.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cooling-systems" class="cooling-systems section accent-bg">
+            <div class="container">
+                <h2 class="section-title" data-i18n="cooling_title">Cooling Mastery</h2>
+                <p class="section-subtitle" data-i18n="cooling_subtitle">Comparing CRAC &
+                    CRAH...</p>
+                <div class="cooling-grid">
+                    <div class="cooling-card border-glow">
+                        <div class="cooling-badge">DX System</div>
+                        <h3 data-i18n="cooling_card1_t">CRAC</h3>
+                        <h4 data-i18n="cooling_card1_st">Air Conditioner</h4>
+                        <ul class="feature-list">
+                            <li data-i18n="cooling_feat1_1">Mechanism...</li>
+                            <li data-i18n="cooling_feat1_2">Best For...</li>
+                            <li data-i18n="cooling_feat1_3">Pros...</li>
+                        </ul>
+                        <div class="cooling-footer" data-i18n="cooling_footer1">Ideal for < 200kW</div>
+                        </div>
+                        <div class="cooling-card border-glow highlight-border">
+                            <div class="cooling-badge primary">Chilled Water</div>
+                            <h3 data-i18n="cooling_card2_t">CRAH</h3>
+                            <h4 data-i18n="cooling_card2_st">Air Handler</h4>
+                            <ul class="feature-list">
+                                <li data-i18n="cooling_feat2_1">Mechanism...</li>
+                                <li data-i18n="cooling_feat2_2">Best For...</li>
+                                <li data-i18n="cooling_feat2_3">Pros...</li>
+                            </ul>
+                            <div class="cooling-footer" data-i18n="cooling_footer2">Essential for Hyperscale</div>
+                        </div>
+                    </div>
+                    <div class="scaling-note text-center">
+                        <p data-i18n="scaling_note">"In my research..."</p>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Fault Tolerance Deep Dive -->
+        <section id="fault-tolerance" class="fault-tolerance section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="ft_title">Fault Tolerance Mastery</h2>
+                <p class="section-subtitle" data-i18n="ft_subtitle">Tier 4 Design
+                    Principles...</p>
+
+                <div class="pillars-grid">
+                    <div class="pillar-card border-glow">
+                        <div class="pillar-icon">🔄</div>
+                        <h3 data-i18n="ft_card1_t">2N+1 Redundancy</h3>
+                        <p data-i18n="ft_card1_d">Every critical component has an independent backup...</p>
+                    </div>
+                    <div class="pillar-card border-glow">
+                        <div class="pillar-icon">🛡️</div>
+                        <h3 data-i18n="ft_card2_t">Compartmentalization</h3>
+                        <p data-i18n="ft_card2_d">Physical separation of redundant equipment...</p>
+                    </div>
+                    <div class="pillar-card border-glow">
+                        <div class="pillar-icon">🛠️</div>
+                        <h3 data-i18n="ft_card3_t">Concurrent Maintainability</h3>
+                        <p data-i18n="ft_card3_d">The ability to repair or replace any component...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Availability Standards -->
+        <section id="availability" class="availability section accent-bg">
+            <div class="container">
+                <h2 class="section-title" data-i18n="av_title">Availability Standards</h2>
+                <p class="section-subtitle" data-i18n="av_subtitle">Achieving 99.995%
+                    Uptime...</p>
+
+                <div class="pillars-grid">
+                    <div class="pillar-card border-glow">
+                        <div class="pillar-icon">📈</div>
+                        <h3 data-i18n="av_card1_t">99.995% Uptime Goal</h3>
+                        <p data-i18n="av_card1_d">A maximum of 26.3 minutes of downtime per year...</p>
+                    </div>
+                    <div class="pillar-card border-glow">
+                        <div class="pillar-icon">📡</div>
+                        <h3 data-i18n="av_card2_t">Uptime Management</h3>
+                        <p data-i18n="av_card2_d">Utilizing advanced monitoring and automated failover...</p>
+                    </div>
+                    <div class="pillar-card border-glow highlight-border">
+                        <div class="pillar-icon">🏆</div>
+                        <h3 data-i18n="av_card3_t">Hyperscale SLAs</h3>
+                        <p data-i18n="av_card3_d">Providing service level guarantees tailored for large-scale...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Center Network Section -->
+        <section id="network" class="network section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="net_title">Data Center Network Architecture</h2>
+                <p class="section-subtitle" style="margin-bottom: 4rem;" data-i18n="net_subtitle">Spine-Leaf Network
+                    Design for Maximum Performance & Low Latency</p>
+
+                <div class="network-grid">
+                    <div class="net-card border-glow">
+                        <div class="net-icon">🕸️</div>
+                        <h3 data-i18n="net_feat1_t">Spine-Leaf Architecture</h3>
+                        <p data-i18n="net_feat1_d">Next-gen network design providing high-bandwidth and ultra-low
+                            latency, ideal for East-West traffic patterns.</p>
+                    </div>
+                    <div class="net-card border-glow">
+                        <div class="net-icon">🔄</div>
+                        <h3 data-i18n="net_feat2_t">Full Redundancy (N+1)</h3>
+                        <p data-i18n="net_feat2_d">Dual-homing design for all critical servers to ensure no network
+                            downtime during hardware failure.</p>
+                    </div>
+                    <div class="net-card border-glow">
+                        <div class="net-icon">⚡</div>
+                        <h3 data-i18n="net_feat3_t">High-Speed Fiber Optics</h3>
+                        <p data-i18n="net_feat3_d">Supporting 10G/40G/100G standards using OM4/OM5 fiber optics for
+                            unlimited data throughput.</p>
+                    </div>
+                </div>
+
+                <div class="network-comparison" style="margin-top: 5rem;">
+                    <h3 class="text-center" style="margin-bottom: 2.5rem; color: var(--primary);"
+                        data-i18n="net_comp_title">Architecture Comparison</h3>
+                    <div class="table-wrapper">
+                        <table class="styled-table comparison-table">
+                            <thead>
+                                <tr>
+                                    <th data-i18n="table_h_comp">Feature</th>
+                                    <th data-i18n="net_comp_h1">Traditional 3-Tier</th>
+                                    <th data-i18n="net_comp_h2">Data Center Spine-Leaf</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-i18n="net_comp_row1_t">Traffic Flow</td>
+                                    <td data-i18n="net_comp_row1_c1">North-South</td>
+                                    <td data-i18n="net_comp_row1_c2">East-West</td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="net_comp_row2_t">Latency</td>
+                                    <td data-i18n="net_comp_row2_c1">Variable</td>
+                                    <td data-i18n="net_comp_row2_c2">Ultra-Low</td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="net_comp_row3_t">Scalability</td>
+                                    <td data-i18n="net_comp_row3_c1">Limited</td>
+                                    <td data-i18n="net_comp_row3_c2">High (Linear)</td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="net_comp_row4_t">Redundancy</td>
+                                    <td data-i18n="net_comp_row4_c1">STP (Active/Passive)</td>
+                                    <td data-i18n="net_comp_row4_c2">ECMP (Active/Active)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact section">
+            <div class="container text-center">
+                <h2 class="section-title" data-i18n="contact_title">Let's Build the Future</h2>
+                <p class="section-subtitle" data-i18n="contact_p">Highly motivated...</p>
+                <div class="emails-container">
+                    <div class="email-copy-container">
+                        <span class="email-label" data-i18n="contact_gmail_tag">Personal / Gmail</span>
+                        <div class="email-row">
+                            <span id="email-gmail">natthaphong.meesawad@gmail.com</span>
+                            <button class="copy-btn" onclick="copyEmail('email-gmail', 'status-gmail')"
+                                title="Copy Email">
+                                <span class="copy-icon">📋</span>
+                                <span id="status-gmail" data-i18n="copy_text">Copy</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="email-copy-container">
+                        <span class="email-label" data-i18n="contact_outlook_tag">Personal / Outlook</span>
+                        <div class="email-row">
+                            <span id="email-outlook">hgddata1996@hotmail.com</span>
+                            <button class="copy-btn" onclick="copyEmail('email-outlook', 'status-outlook')"
+                                title="Copy Email">
+                                <span class="copy-icon">📋</span>
+                                <span id="status-outlook" data-i18n="copy_text">Copy</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-links">
+                    <a href="tel:0830586725" class="contact-btn" data-i18n="contact_phone">Phone: 083-058-6725</a>
+                    <a href="https://github.com/Natthaphong1996" target="_blank" class="contact-btn"
+                        data-i18n="contact_github">GitHub Profile</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <p data-i18n="footer">&copy; 2024 natthaphong Meesawad.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

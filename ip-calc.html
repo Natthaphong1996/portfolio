@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Calculator - natthaphong Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        .calc-container {
+            max-width: 1000px;
+            margin: 6rem auto;
+            padding: 2rem;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+        }
+
+        .input-group {
+            margin-bottom: 2rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .calc-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            color: #fff;
+            font-size: 1.1rem;
+            font-family: 'Inter', monospace;
+            transition: var(--transition);
+        }
+
+        .calc-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(0, 210, 255, 0.05);
+        }
+
+        .slider-group {
+            margin-top: 2rem;
+        }
+
+        .cidr-slider {
+            width: 100%;
+            height: 6px;
+            background: var(--border);
+            border-radius: 3px;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .cidr-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .result-card:hover {
+            background: rgba(0, 210, 255, 0.03);
+            border-color: rgba(0, 210, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .copy-icon-small {
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-left: 1rem;
+            opacity: 0.3;
+            transition: var(--transition);
+            background: rgba(255,255,255,0.1);
+            padding: 4px 8px;
+            border-radius: 6px;
+        }
+
+        .result-card:hover .copy-icon-small {
+            opacity: 1;
+        }
+
+        .copy-icon-small:hover {
+            background: var(--primary);
+            color: #000;
+        }
+
+        .usage-note-box {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(0, 210, 255, 0.05);
+            border-left: 4px solid var(--primary);
+            border-radius: 12px;
+        }
+
+        .usage-note-title {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        #usage-description {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        .result-value-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .result-label {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        .result-value {
+            color: #fff;
+            font-family: 'Inter', monospace;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .binary-display {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.8rem;
+            color: var(--primary);
+            margin-top: 0.3rem;
+            opacity: 0.7;
+        }
+
+        .badge-type {
+            padding: 0.3rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .badge-public { background: rgba(52, 211, 153, 0.2); color: #34d399; border: 1px solid #34d399; }
+        .badge-private { background: rgba(251, 191, 36, 0.2); color: #fbbf24; border: 1px solid #fbbf24; }
+
+        .back-nav {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .calc-grid { grid-template-columns: 1fr; }
+            .calc-container { margin: 4rem 1rem; border-radius: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+    <div class="grid-overlay"></div>
+
+    <nav>
+        <div class="container nav-content">
+            <a href="index.html" class="logo">natthaphong<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#about" data-i18n="nav_about">About</a></li>
+                <li><a href="index.html#experience" data-i18n="nav_experience">Experience</a></li>
+                <li><a href="index.html#datacenter" data-i18n="nav_datacenter">Data Center</a></li>
+                <li><a href="index.html#power-systems" data-i18n="nav_power">Electrical</a></li>
+                <li><a href="index.html#cooling-systems" data-i18n="nav_cooling">Cooling</a></li>
+                <li><a href="index.html#fault-tolerance" data-i18n="nav_fault">Fault Tolerance</a></li>
+                <li><a href="index.html#availability" data-i18n="nav_availability">Availability</a></li>
+                <li><a href="index.html#network" data-i18n="nav_network">Network</a></li>
+                <li><a href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
+                <li><a href="ip-calc.html" data-i18n="nav_calc" class="nav-btn-highlight">IP Calculator</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+                <button class="lang-btn" onclick="setLanguage('th')">TH</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="calc-container reveal visible">
+            <h2 class="section-title text-center" style="margin-bottom: 1rem;" data-i18n="calc_title">IP Calculator</h2>
+            <p class="text-center" style="color: var(--text-dim); margin-bottom: 3rem;" data-i18n="calc_subtitle">Advanced IPv4 Subnetting Tool</p>
+            
+            <div class="calc-grid">
+                <!-- Left Side: Inputs -->
+                <div class="calc-inputs">
+                    <div class="input-group">
+                        <label data-i18n="calc_ip_label">IP Address</label>
+                        <input type="text" id="ip-address" class="calc-input" value="192.168.1.1" placeholder="e.g. 192.168.1.1">
+                    </div>
+
+                    <div class="input-group slider-group">
+                        <label><span data-i18n="calc_cidr_label">Subnet Mask / CIDR</span>: <span id="cidr-display" style="color: var(--primary);">/24</span></label>
+                        <input type="range" id="cidr-range" min="0" max="32" value="24" class="cidr-slider">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-dim); margin-top: 0.5rem;">
+                            <span>/0</span>
+                            <span>/16</span>
+                            <span>/32</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label data-i18n="calc_mask_label">Dotted Decimal Mask</label>
+                        <input type="text" id="mask-display" class="calc-input" value="255.255.255.0" readonly>
+                    </div>
+
+                    <div id="ip-identity-box" style="margin-top: 2rem;">
+                        <!-- dynamic badges -->
+                    </div>
+                </div>
+
+                <!-- Right Side: Results -->
+                <div class="calc-results">
+                    <div class="result-card">
+                        <div>
+                            <div class="result-label" data-i18n="calc_net_addr">Network Address</div>
+                            <div id="net-bin" class="binary-display">00000000.00000000.00000000.00000000</div>
+                        </div>
+                        <div class="result-value-container">
+                            <div id="net-addr" class="result-value">192.168.1.0</div>
+                            <span class="copy-icon-small" onclick="copyValue('net-addr')">📋</span>
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <div>
+                            <div class="result-label" data-i18n="calc_wildcard">Wildcard Mask</div>
+                        </div>
+                        <div class="result-value-container">
+                            <div id="wildcard-addr" class="result-value">0.0.0.255</div>
+                            <span class="copy-icon-small" onclick="copyValue('wildcard-addr')">📋</span>
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <div>
+                            <div class="result-label" data-i18n="calc_first_ip">First Usable IP</div>
+                        </div>
+                        <div class="result-value-container">
+                            <div id="first-ip" class="result-value">192.168.1.1</div>
+                            <span class="copy-icon-small" onclick="copyValue('first-ip')">📋</span>
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <div>
+                            <div class="result-label" data-i18n="calc_last_ip">Last Usable IP</div>
+                        </div>
+                        <div class="result-value-container">
+                            <div id="last-ip" class="result-value">192.168.1.254</div>
+                            <span class="copy-icon-small" onclick="copyValue('last-ip')">📋</span>
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <div>
+                            <div class="result-label" data-i18n="calc_broad_addr">Broadcast Address</div>
+                            <div id="broad-bin" class="binary-display">00000000.00000000.00000000.00000000</div>
+                        </div>
+                        <div class="result-value-container">
+                            <div id="broad-addr" class="result-value">192.168.1.255</div>
+                            <span class="copy-icon-small" onclick="copyValue('broad-addr')">📋</span>
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <div>
+                            <div class="result-label" data-i18n="calc_hex">IP in Hexadecimal</div>
+                        </div>
+                        <div class="result-value-container">
+                            <div id="hex-addr" class="result-value">C0.A8.01.01</div>
+                            <span class="copy-icon-small" onclick="copyValue('hex-addr')">📋</span>
+                        </div>
+                    </div>
+
+                    <div class="result-row-small" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="result-card">
+                            <div class="result-label" data-i18n="calc_total_hosts">Hosts</div>
+                            <div id="total-hosts" class="result-value">254</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-label" data-i18n="calc_class">Class</div>
+                            <div id="ip-class" class="result-value">C</div>
+                        </div>
+                    </div>
+
+                    <div class="usage-note-box">
+                        <div class="usage-note-title">
+                            <span>💡</span> <span data-i18n="calc_usage_title">Technical Insight</span>
+                        </div>
+                        <p id="usage-description">Selecting a /24 subnet is common for standard local area networks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center">
+        <p data-i18n="footer">&copy; 2024 natthaphong มีสวัสดิ์. Built for Excellence.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="ip-calc.js"></script>
+</body>
+</html>
