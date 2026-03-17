@@ -179,6 +179,11 @@
                                     <td data-i18n="infra_item7_n"><strong>CRAH</strong></td>
                                     <td data-i18n="infra_item7_d">Managed temperature and airflow.</td>
                                 </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td data-i18n="infra_item_pdu_n"><strong>PDU</strong></td>
+                                    <td data-i18n="infra_item_pdu_d">Power distribution for servers.</td>
+                                </tr>
                             </tbody>
                         </table>
 
@@ -187,7 +192,7 @@
                             <h4
                                 style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
                                 <span style="font-size: 1.2rem;">💡</span> <span data-i18n="power_detail_title">Deep
-                                    Dive: ATS vs STS</span>
+                                    Dive: ATS vs STS vs PDU</span>
                             </h4>
                             <div style="display: grid; gap: 1.5rem; font-size: 0.9rem; line-height: 1.5;">
                                 <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
@@ -217,6 +222,21 @@
                                     </div>
                                     <div style="width: 150px; flex-shrink: 0;">
                                         <img src="img/STS.png" alt="STS Device" class="device-thumb border-glow"
+                                            style="width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--border); background: #000;">
+                                    </div>
+                                </div>
+
+                                <div style="height: 1px; background: rgba(255,255,255,0.05);"></div>
+
+                                <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+                                    <div style="flex: 1; min-width: 250px;">
+                                        <strong style="color: var(--secondary);">PDU (Power Distribution Unit)</strong>
+                                        <p style="margin-top: 0.4rem; color: var(--text-dim);" data-i18n="pdu_detail">
+                                            ชุดกระจายกำลังไฟฟ้าอัจฉริยะที่ติดตั้งในตู้แร็ค สามารถวัดค่าการใช้พลังงานได้แม่นยำ (Monitoring) ช่วยให้บริหารจัดการโหลดไฟฟ้าของ Server ในแต่ละตู้ไม่ให้เกินพิกัด
+                                        </p>
+                                    </div>
+                                    <div style="width: 150px; flex-shrink: 0;">
+                                        <img src="img/PDU.png" alt="PDU Device" class="device-thumb border-glow"
                                             style="width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--border); background: #000;">
                                     </div>
                                 </div>
