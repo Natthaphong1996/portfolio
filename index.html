@@ -20,27 +20,7 @@
     <div class="bg-glow"></div>
     <div class="grid-overlay"></div>
 
-    <nav>
-        <div class="container nav-content">
-            <a href="index.html" class="logo">natthaphong<span>.</span></a>
-            <ul class="nav-links">
-                <li><a href="#about" data-i18n="nav_about">About</a></li>
-                <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
-                <li><a href="#datacenter" data-i18n="nav_datacenter">Data Center</a></li>
-                <li><a href="#power-systems" data-i18n="nav_power">Electrical</a></li>
-                <li><a href="#cooling-systems" data-i18n="nav_cooling">Cooling</a></li>
-                <li><a href="#fault-tolerance" data-i18n="nav_fault">Fault Tolerance</a></li>
-                <li><a href="#availability" data-i18n="nav_availability">Availability</a></li>
-                <li><a href="#network" data-i18n="nav_network">Network</a></li>
-                <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
-                <li><a href="ip-calc.html" data-i18n="nav_calc" class="nav-btn-highlight">IP Calculator</a></li>
-            </ul>
-            <div class="lang-switcher">
-                <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-                <button class="lang-btn" onclick="setLanguage('th')">TH</button>
-            </div>
-        </div>
-    </nav>
+    <nav id="main-nav"></nav>
 
     <main>
         <section id="hero" class="hero section">
@@ -148,7 +128,7 @@
 
         <section id="power-systems" class="power-systems section">
             <div class="container">
-                <h2 class="section-title" data-i18n="infra_title">Critical Infrastructure Breakdown</h2>
+                <h2 class="section-title" data-i18n="infra_title">Electrical System</h2>
                 <div class="power-grid">
                     <div class="power-image-container">
                         <img src="img/รูปแบบไฟฟ้า.png" alt="Power Diagram" class="power-diagram border-glow">
@@ -179,6 +159,12 @@
                                     <td data-i18n="infra_item3_d">Immediate backup & voltage stabilization.</td>
                                 </tr>
                                 <tr>
+                                    <td>-</td>
+                                    <td data-i18n="infra_item_sts_n"><strong>STS</strong></td>
+                                    <td data-i18n="infra_item_sts_d">High-speed switching between two power sources.
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td>4</td>
                                     <td data-i18n="infra_item4_n"><strong>Chiller</strong></td>
                                     <td data-i18n="infra_item4_d">Produces chilled water for cooling.</td>
@@ -195,6 +181,47 @@
                                 </tr>
                             </tbody>
                         </table>
+
+                        <div class="info-box border-glow"
+                            style="margin-top: 2rem; padding: 1.5rem; background: rgba(0, 243, 255, 0.05); border-radius: 12px; border: 1px solid rgba(0, 243, 255, 0.1);">
+                            <h4
+                                style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="font-size: 1.2rem;">💡</span> <span data-i18n="power_detail_title">Deep
+                                    Dive: ATS vs STS</span>
+                            </h4>
+                            <div style="display: grid; gap: 1.5rem; font-size: 0.9rem; line-height: 1.5;">
+                                <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+                                    <div style="flex: 1; min-width: 250px;">
+                                        <strong style="color: var(--secondary);">ATS (Automatic Transfer
+                                            Switch)</strong>
+                                        <p style="margin-top: 0.4rem; color: var(--text-dim);" data-i18n="ats_detail">
+                                            สลับแหล่งจ่ายระหว่าง Utility และ Generator เมื่อไฟดับ โดยมีเวลาหน่วง
+                                            (Seconds) เหมาะสำหรับอุปกรณ์ที่ไม่ซีเรียสเรื่องไฟกระพริบ
+                                        </p>
+                                    </div>
+                                    <div style="width: 150px; flex-shrink: 0;">
+                                        <img src="img/ATS.png" alt="ATS Device" class="device-thumb border-glow"
+                                            style="width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--border); background: #000;">
+                                    </div>
+                                </div>
+
+                                <div style="height: 1px; background: rgba(255,255,255,0.05);"></div>
+
+                                <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+                                    <div style="flex: 1; min-width: 250px;">
+                                        <strong style="color: var(--secondary);">STS (Static Transfer Switch)</strong>
+                                        <p style="margin-top: 0.4rem; color: var(--text-dim);" data-i18n="sts_detail">
+                                            ใช้สารกึ่งตัวนำทำให้สลับไฟได้เร็วมาก (Milliseconds) ระหว่าง UPS 2 แหล่ง
+                                            เหมาะสำหรับอุปกรณ์ IT ที่มีสายจ่ายไฟเส้นเดียวเพื่อป้องกันเครื่องดับ
+                                        </p>
+                                    </div>
+                                    <div style="width: 150px; flex-shrink: 0;">
+                                        <img src="img/STS.png" alt="STS Device" class="device-thumb border-glow"
+                                            style="width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--border); background: #000;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -206,6 +233,11 @@
                 <h2 class="section-title" data-i18n="cooling_title">Cooling Mastery</h2>
                 <p class="section-subtitle" data-i18n="cooling_subtitle">Comparing CRAC &
                     CRAH...</p>
+
+                <div class="cooling-image-container text-center" style="margin-bottom: 4rem;">
+                    <img src="img/CRACandCRAH.png" alt="CRAC vs CRAH Comparison" class="cooling-diagram border-glow"
+                        style="max-width: 1000px; width: 100%; border-radius: 20px; border: 1px solid var(--border);">
+                </div>
                 <div class="cooling-grid">
                     <div class="cooling-card border-glow">
                         <div class="cooling-badge">DX System</div>
@@ -285,6 +317,36 @@
                         <div class="pillar-icon">🏆</div>
                         <h3 data-i18n="av_card3_t">Hyperscale SLAs</h3>
                         <p data-i18n="av_card3_d">Providing service level guarantees tailored for large-scale...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Center Environment Section -->
+        <section id="environment" class="environment section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="env_title">Data Center Environment</h2>
+                <p class="section-subtitle" data-i18n="env_subtitle">Optimizing the Physical Infrastructure for Tier 4
+                    Reliability</p>
+
+                <div class="pillars-grid">
+                    <div class="pillar-card border-glow">
+                        <div class="pillar-icon">🌡️</div>
+                        <h3 data-i18n="env_card1_t">ASHRAE Standards</h3>
+                        <p data-i18n="env_card1_d">Maintaining precise temperature (18-27°C) and humidity control to
+                            prevent hardware failure and static electricity.</p>
+                    </div>
+                    <div class="pillar-card border-glow">
+                        <div class="pillar-icon">🔥</div>
+                        <h3 data-i18n="env_card2_t">Fire Suppression</h3>
+                        <p data-i18n="env_card2_d">Utilizing VESDA for early detection and Clean Agent (FM-200/Novec
+                            1230) to extinguish fire without damaging IT equipment.</p>
+                    </div>
+                    <div class="pillar-card border-glow">
+                        <div class="pillar-icon">🔒</div>
+                        <h3 data-i18n="env_card3_t">Physical Security</h3>
+                        <p data-i18n="env_card3_d">Multi-layered security including Biometrics, CCTV, and Man-traps to
+                            ensure only authorized personnel can access critical areas.</p>
                     </div>
                 </div>
             </div>
@@ -395,11 +457,7 @@
         </section>
     </main>
 
-    <footer>
-        <div class="container text-center">
-            <p data-i18n="footer">&copy; 2024 natthaphong Meesawad.</p>
-        </div>
-    </footer>
+    <footer id="main-footer"></footer>
 
     <script src="script.js"></script>
 </body>

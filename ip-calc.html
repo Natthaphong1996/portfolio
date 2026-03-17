@@ -191,33 +191,168 @@
             .calc-grid { grid-template-columns: 1fr; }
             .calc-container { margin: 4rem 1rem; border-radius: 20px; }
         }
+
+        /* Cisco Commands Styles */
+        .cisco-section {
+            margin-top: 4rem;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+        }
+
+        .cisco-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .cisco-category {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .cisco-category h3 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .command-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .command-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .command-name {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .command-code {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #000;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85rem;
+            color: #34d399; /* Greenish terminal color */
+        }
+
+        .command-code code {
+            word-break: break-all;
+        }
+
+        .copy-cmd {
+            cursor: pointer;
+            opacity: 0.5;
+            transition: var(--transition);
+        }
+
+        .copy-cmd:hover {
+            opacity: 1;
+            color: var(--primary);
+        }
+
+        .command-desc {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            margin-top: 0.4rem;
+            line-height: 1.4;
+        }
+
+        /* OSI Model Styles */
+        .osi-section {
+            margin-top: 4rem;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+        }
+
+        .osi-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+
+        .osi-layer {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            padding: 0.8rem 1.5rem;
+            transition: var(--transition);
+        }
+
+        .osi-layer:hover {
+            background: rgba(0, 210, 255, 0.05);
+            border-color: var(--primary);
+            transform: scale(1.02);
+            z-index: 10;
+        }
+
+        .layer-number {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .layer-content h4 {
+            font-size: 1rem;
+            color: #fff;
+            margin-bottom: 0.2rem;
+        }
+
+        .layer-content p {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        /* Gradient for the stack to show hierarchy */
+        .osi-layer:nth-child(1) { border-left: 5px solid #00d2ff; }
+        .osi-layer:nth-child(2) { border-left: 5px solid #00a8ff; }
+        .osi-layer:nth-child(3) { border-left: 5px solid #007aff; }
+        .osi-layer:nth-child(4) { border-left: 5px solid #5856d6; }
+        .osi-layer:nth-child(5) { border-left: 5px solid #af52de; }
+        .osi-layer:nth-child(6) { border-left: 5px solid #ff2d55; }
+        .osi-layer:nth-child(7) { border-left: 5px solid #ff9500; }
+
+        @media (max-width: 600px) {
+            .osi-layer {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                padding: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="bg-glow"></div>
     <div class="grid-overlay"></div>
 
-    <nav>
-        <div class="container nav-content">
-            <a href="index.html" class="logo">natthaphong<span>.</span></a>
-            <ul class="nav-links">
-                <li><a href="index.html#about" data-i18n="nav_about">About</a></li>
-                <li><a href="index.html#experience" data-i18n="nav_experience">Experience</a></li>
-                <li><a href="index.html#datacenter" data-i18n="nav_datacenter">Data Center</a></li>
-                <li><a href="index.html#power-systems" data-i18n="nav_power">Electrical</a></li>
-                <li><a href="index.html#cooling-systems" data-i18n="nav_cooling">Cooling</a></li>
-                <li><a href="index.html#fault-tolerance" data-i18n="nav_fault">Fault Tolerance</a></li>
-                <li><a href="index.html#availability" data-i18n="nav_availability">Availability</a></li>
-                <li><a href="index.html#network" data-i18n="nav_network">Network</a></li>
-                <li><a href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
-                <li><a href="ip-calc.html" data-i18n="nav_calc" class="nav-btn-highlight">IP Calculator</a></li>
-            </ul>
-            <div class="lang-switcher">
-                <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-                <button class="lang-btn" onclick="setLanguage('th')">TH</button>
-            </div>
-        </div>
-    </nav>
+    <nav id="main-nav"></nav>
 
     <main class="container">
         <div class="calc-container reveal visible">
@@ -336,11 +471,198 @@
                 </div>
             </div>
         </div>
+
+        <!-- Common Cisco Commands Section -->
+        <div class="cisco-section reveal visible">
+            <h2 class="section-title text-center" style="margin-bottom: 1rem;" data-i18n="cisco_title">Common Cisco Commands</h2>
+            <p class="text-center" style="color: var(--text-dim); margin-bottom: 3rem;" data-i18n="cisco_desc">Essential commands for managing Cisco Network devices</p>
+
+            <div class="cisco-grid">
+                <!-- Verification -->
+                <div class="cisco-category">
+                    <h3 data-i18n="cisco_cat1"><span>🔍</span> Verification</h3>
+                    <div class="command-item">
+                        <span class="command-name" data-i18n="cisco_cmd1_n">Check Interface Status</span>
+                        <div class="command-code">
+                            <code id="cmd-1">show ip interface brief</code>
+                            <span class="copy-cmd" onclick="copyValueText('show ip interface brief')">📋</span>
+                        </div>
+                        <span class="command-desc" data-i18n="cisco_cmd1_d">Summary of IP and status for all interfaces</span>
+                    </div>
+                    <div class="command-item">
+                        <span class="command-name" data-i18n="cisco_cmd2_n">View Running Config</span>
+                        <div class="command-code">
+                            <code id="cmd-2">show running-config</code>
+                            <span class="copy-cmd" onclick="copyValueText('show running-config')">📋</span>
+                        </div>
+                        <span class="command-desc" data-i18n="cisco_cmd2_d">Display current active configuration in RAM</span>
+                    </div>
+                </div>
+
+                <!-- Configuration -->
+                <div class="cisco-category border-glow">
+                    <h3 data-i18n="cisco_cat2"><span>🛠️</span> Configuration</h3>
+                    <div class="command-item">
+                        <span class="command-name" data-i18n="cisco_cmd3_n">Enter Config Mode</span>
+                        <div class="command-code">
+                            <code>configure terminal</code>
+                            <span class="copy-cmd" onclick="copyValueText('configure terminal')">📋</span>
+                        </div>
+                        <span class="command-desc" data-i18n="cisco_cmd3_d">Switch to Global Configuration mode</span>
+                    </div>
+                    <div class="command-item">
+                        <span class="command-name" data-i18n="cisco_cmd4_n">Assign IP to Interface</span>
+                        <div class="command-code" style="font-size: 0.75rem;">
+                            <code>ip address [IP] [MASK]</code>
+                            <span class="copy-cmd" onclick="copyValueText('ip address')">📋</span>
+                        </div>
+                        <span class="command-desc" data-i18n="cisco_cmd4_d">Set IP and Mask for a specific port</span>
+                    </div>
+                </div>
+
+                <!-- Maintenance -->
+                <div class="cisco-category">
+                    <h3 data-i18n="cisco_cat3"><span>💾</span> Maintenance</h3>
+                    <div class="command-item">
+                        <span class="command-name" data-i18n="cisco_cmd5_n">Save Configuration</span>
+                        <div class="command-code">
+                            <code>write memory</code>
+                            <span class="copy-cmd" onclick="copyValueText('write memory')">📋</span>
+                        </div>
+                        <span class="command-desc" data-i18n="cisco_cmd5_d">Save changes to non-volatile memory</span>
+                    </div>
+                    <div class="command-item">
+                        <span class="command-name">Restart Device</span>
+                        <div class="command-code">
+                            <code>reload</code>
+                            <span class="copy-cmd" onclick="copyValueText('reload')">📋</span>
+                        </div>
+                        <span class="command-desc">Reboot the switch or router</span>
+                    </div>
+                </div>
+
+                <!-- VLAN Management -->
+                <div class="cisco-category border-glow">
+                    <h3 data-i18n="cisco_cat4"><span>🏷️</span> VLAN Management</h3>
+                    <div class="command-item">
+                        <span class="command-name" data-i18n="cisco_cmd6_n">Create VLAN</span>
+                        <div class="command-code">
+                            <code>vlan [ID]</code>
+                            <span class="copy-cmd" onclick="copyValueText('vlan 10')">📋</span>
+                        </div>
+                        <span class="command-desc" data-i18n="cisco_cmd6_d">Create a VLAN ID and assign a name</span>
+                    </div>
+                    <div class="command-item">
+                        <span class="command-name" data-i18n="cisco_cmd7_n">Assign Port to VLAN</span>
+                        <div class="command-code" style="font-size: 0.75rem;">
+                            <code>sw access vlan [ID]</code>
+                            <span class="copy-cmd" onclick="copyValueText('switchport access vlan 10')">📋</span>
+                        </div>
+                        <span class="command-desc" data-i18n="cisco_cmd7_d">Set interface to Access mode and assign to VLAN</span>
+                    </div>
+                    <div class="command-item">
+                        <span class="command-name" data-i18n="cisco_cmd8_n">Verify VLANs</span>
+                        <div class="command-code">
+                            <code>show vlan brief</code>
+                            <span class="copy-cmd" onclick="copyValueText('show vlan brief')">📋</span>
+                        </div>
+                        <span class="command-desc" data-i18n="cisco_cmd8_d">Display brief summary of all configured VLANs</span>
+                    </div>
+                </div>
+
+                <!-- Routing Configuration -->
+                <div class="cisco-category border-glow">
+                    <h3 data-i18n="cisco_cat5"><span>🛤️</span> Routing Configuration</h3>
+                    <div class="command-item">
+                        <span class="command-name" data-i18n="cisco_cmd9_n">Static Routing</span>
+                        <div class="command-code" style="font-size: 0.75rem;">
+                            <code>ip route [Net] [Mask] [Next-Hop]</code>
+                            <span class="copy-cmd" onclick="copyValueText('ip route 192.168.2.0 255.255.255.0 10.0.0.1')">📋</span>
+                        </div>
+                        <span class="command-desc" data-i18n="cisco_cmd9_d">Manually configure a path to a destination</span>
+                    </div>
+                    <div class="command-item">
+                        <span class="command-name" data-i18n="cisco_cmd10_n">Default Route</span>
+                        <div class="command-code">
+                            <code>ip route 0.0.0.0 0.0.0.0 [NH]</code>
+                            <span class="copy-cmd" onclick="copyValueText('ip route 0.0.0.0 0.0.0.0 10.0.0.1')">📋</span>
+                        </div>
+                        <span class="command-desc" data-i18n="cisco_cmd10_d">Set the gateway of last resort</span>
+                    </div>
+                    <div class="command-item">
+                        <span class="command-name" data-i18n="cisco_cmd11_n">Check Routing Table</span>
+                        <div class="command-code">
+                            <code>show ip route</code>
+                            <span class="copy-cmd" onclick="copyValueText('show ip route')">📋</span>
+                        </div>
+                        <span class="command-desc" data-i18n="cisco_cmd11_d">Display the current IP routing table</span>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OSI 7-Layer Model Section -->
+        <div class="osi-section reveal visible">
+            <h2 class="section-title text-center" style="margin-bottom: 1rem;" data-i18n="osi_title">OSI 7-Layer Model</h2>
+            <p class="text-center" style="color: var(--text-dim); margin-bottom: 2rem;" data-i18n="osi_desc">Standard framework for network communication and protocols</p>
+
+            <div class="osi-stack">
+                <div class="osi-layer">
+                    <span class="layer-number">Layer 7</span>
+                    <div class="layer-content">
+                        <h4 data-i18n="osi_l7_t">Application</h4>
+                        <p data-i18n="osi_l7_d">Interfaces with users and software (HTTP, FTP, SMTP)</p>
+                    </div>
+                </div>
+                <div class="osi-layer">
+                    <span class="layer-number">Layer 6</span>
+                    <div class="layer-content">
+                        <h4 data-i18n="osi_l6_t">Presentation</h4>
+                        <p data-i18n="osi_l6_d">Data processing, encryption, and compression</p>
+                    </div>
+                </div>
+                <div class="osi-layer">
+                    <span class="layer-number">Layer 5</span>
+                    <div class="layer-content">
+                        <h4 data-i18n="osi_l5_t">Session</h4>
+                        <p data-i18n="osi_l5_d">Managing and controlling connections between apps</p>
+                    </div>
+                </div>
+                <div class="osi-layer">
+                    <span class="layer-number">Layer 4</span>
+                    <div class="layer-content">
+                        <h4 data-i18n="osi_l4_t">Transport</h4>
+                        <p data-i18n="osi_l4_d">End-to-end data delivery and error control (TCP, UDP)</p>
+                    </div>
+                </div>
+                <div class="osi-layer">
+                    <span class="layer-number">Layer 3</span>
+                    <div class="layer-content">
+                        <h4 data-i18n="osi_l3_t">Network</h4>
+                        <p data-i18n="osi_l3_d">Routing and logical addressing (IP Address)</p>
+                    </div>
+                </div>
+                <div class="osi-layer">
+                    <span class="layer-number">Layer 2</span>
+                    <div class="layer-content">
+                        <h4 data-i18n="osi_l2_t">Data Link</h4>
+                        <p data-i18n="osi_l2_d">Physical addressing and LAN switching (MAC Address)</p>
+                    </div>
+                </div>
+                <div class="osi-layer">
+                    <span class="layer-number">Layer 1</span>
+                    <div class="layer-content">
+                        <h4 data-i18n="osi_l1_t">Physical</h4>
+                        <p data-i18n="osi_l1_d">Cables, connectors, and electrical signals</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <footer class="text-center">
-        <p data-i18n="footer">&copy; 2024 natthaphong มีสวัสดิ์. Built for Excellence.</p>
-    </footer>
+    <footer id="main-footer" class="text-center"></footer>
 
     <script src="script.js"></script>
     <script src="ip-calc.js"></script>

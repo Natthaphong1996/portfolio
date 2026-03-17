@@ -33,6 +33,18 @@ function copyValue(id) {
     });
 }
 
+function copyValueText(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        // Find all elements with this text and update them briefly for feedback
+        const icons = document.querySelectorAll(`span[onclick="copyValueText('${text}')"]`);
+        icons.forEach(icon => {
+            const original = icon.innerText;
+            icon.innerText = "Done!";
+            setTimeout(() => { icon.innerText = original; }, 1000);
+        });
+    });
+}
+
 function getInsight(cidr) {
     const lang = localStorage.getItem('selectedLang') || 'en';
     const insights = {

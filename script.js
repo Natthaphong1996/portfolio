@@ -7,6 +7,7 @@ const translations = {
         nav_cooling: "ระบบทำความเย็น",
         nav_fault: "ความทนทานระบบ",
         nav_availability: "ความพร้อมใช้งาน",
+        nav_env: "สภาพแวดล้อม",
         nav_network: "ระบบเครือข่าย",
         nav_calc: "เครื่องคำนวณ IP",
         nav_contact: "ติดต่อ",
@@ -44,12 +45,14 @@ const translations = {
         dc_pillar3_d: "เป้าหมายคือ <strong>ไม่มีจุดล้มเหลวเพียงจุดเดียว (No Single Point of Failure)</strong> ทุกส่วนประกอบต้องแยกส่วนกันเพื่อป้องกันการล้มเหลวทั้งระบบ",
         dc_pillar4_t: "ความพร้อมใช้งาน",
         dc_pillar4_d: "มุ่งเน้นที่ <strong>Uptime 99.995%</strong> รองรับ <strong>Concurrent Maintainability</strong> สามารถซ่อมบำรุงส่วนประกอบได้โดยไม่ต้องหยุดระบบ",
-        infra_title: "รายละเอียดโครงสร้างพื้นฐานที่สำคัญ",
+        infra_title: "ระบบไฟฟ้า",
         table_h_item: "ลำดับ",
         table_h_comp: "อุปกรณ์",
         table_h_desc: "หน้าที่และความสำคัญ",
         infra_item1_n: "ATS",
-        infra_item1_d: "สลับแหล่งจ่ายไฟอัตโนมัติระหว่างไฟหลวงกับเครื่องปั่นไฟ",
+        infra_item1_d: "สลับแหล่งจ่ายไฟอัตโนมัติระหว่างไฟหลวงกับเครื่องปั่นไฟ (ใช้เวลาสลับเป็นวินาที)",
+        infra_item_sts_n: "STS (Static Transfer Switch)",
+        infra_item_sts_d: "สลับแหล่งจ่ายไฟความเร็วสูง (ระดับมิลลิวินาที) ระหว่าง UPS 2 ชุด เพื่อป้องกันเครื่องดับ",
         infra_item2_n: "Generator",
         infra_item2_d: "เครื่องปั่นไฟสำรอง กรณีไฟหลวงดับเป็นเวลานาน",
         infra_item3_n: "UPS & Batteries",
@@ -60,6 +63,9 @@ const translations = {
         infra_item6_d: "อุปกรณ์หลัก (Server, Storage, Network) ที่เราดูแล",
         infra_item7_n: "CRAH",
         infra_item7_d: "เครื่องเป่าลมเย็นเพื่อคุมอุณหภูมิที่หน้าแร็คเซิร์ฟเวอร์",
+        power_detail_title: "เจาะลึก: ATS vs STS",
+        ats_detail: "สลับแหล่งจ่ายระหว่าง Utility และ Generator เมื่อไฟดับ โดยมีเวลาหน่วง (หลักวินาที) เหมาะสำหรับอุปกรณ์ที่ไม่ซีเรียสเรื่องไฟกระพริบชั่วขณะ เช่น Chiller",
+        sts_detail: "ใช้ Power Semiconductor ทำให้สลับไฟได้เร็วมาก (น้อยกว่า 4-5 Milliseconds) ระหว่าง UPS 2 แหล่ง เหมาะสำหรับอุปกรณ์ IT ที่มีสายจ่ายไฟเส้นเดียวเพื่อให้ทำงานได้ต่อเนื่องโดยไม่ดับ",
         cooling_title: "ระบบทำความเย็น (Cooling Systems)",
         cooling_subtitle: "เปรียบเทียบ CRAC & CRAH: เทคโนโลยีควบคุมความเย็นเพื่ออายุการใช้งานของฮาร์ดแวร์",
         cooling_card1_t: "CRAC",
@@ -114,6 +120,14 @@ const translations = {
         av_card2_d: "การใช้ระบบตรวจสอบ (Monitoring) และระบบสำรองที่ทำงานสอดประสานกันเพื่อป้องกัน Downtime",
         av_card3_t: "SLA ขั้นสูง",
         av_card3_d: "การรับประกันคุณภาพการบริการที่ตอบโจทย์โครงสร้างพื้นฐานระดับ Hyperscale",
+        env_title: "สภาพแวดล้อมภายใน Data Center",
+        env_subtitle: "การควบคุมสภาพแวดล้อมทางกายภาพตามมาตรฐาน Tier 4 เพื่อเสถียรภาพสูงสุด",
+        env_card1_t: "มาตรฐาน ASHRAE",
+        env_card1_d: "การควบคุมอุณหภูมิ (18-27°C) และความชื้นสัมพัทธ์ (40-60% RH) เพื่อป้องกันอุปกรณ์พังเสียหายและไฟฟ้าสถิต",
+        env_card2_t: "ระบบป้องกันอัคคีภัย",
+        env_card2_d: "ใช้ระบบ VESDA ตรวจจับควันความไวสูง และก๊าซสะอาด (FM-200/Novec 1230) เพื่อระงับเหตุโดยไม่ทำลายอุปกรณ์ IT",
+        env_card3_t: "ความปลอดภัยทางกายภาพ",
+        env_card3_d: "ความปลอดภัยหลายชั้น เช่น ระบบสแกนลายนิ้วมือ/ใบหน้า, กล้อง CCTV และประตู Man-trap เพื่อคุมการเข้าออกอย่างเข้มงวด",
         contact_title: "ติดต่อสอบถาม",
         contact_p: "ขอบคุณที่ให้ความสนใจ คุณสามารถติดต่อผมได้ตามช่องทางด้านล่างครับ",
         contact_btn: "ส่งอีเมลถึงผม",
@@ -138,6 +152,51 @@ const translations = {
         calc_class: "คลาส (Class)",
         calc_usage_title: "ข้อมูลทางเทคนิคสำหรับคุณ",
         footer: "&copy; <span id='year'></span> ณัฐพงษ์ มีสวัสดิ์. ขอบคุณสำหรับโอกาสอันมีค่า",
+        cisco_title: "คำสั่ง Cisco ที่ใช้บ่อย",
+        cisco_desc: "รวมคำสั่งพื้นฐานสำหรับการจัดการอุปกรณ์ Cisco Network",
+        cisco_cat1: "การตรวจสอบ (Verification)",
+        cisco_cat2: "การตั้งค่า (Configuration)",
+        cisco_cat3: "การบันทึก (Saving)",
+        cisco_cmd1_n: "ตรวจสอบสถานะ Interface",
+        cisco_cmd1_d: "แสดงสถานะ IP, Status และ Protocol ของทุก Interface แบบย่อ",
+        cisco_cmd2_n: "แสดง Configuration ปัจจุบัน",
+        cisco_cmd2_d: "ตรวจสอบการตั้งค่าทั้งหมดที่กำลังรันอยู่ในหน่วยความจำ",
+        cisco_cmd3_n: "เข้าสู่โหมดตั้งค่า",
+        cisco_cmd3_d: "สลับจาก Exec mode ไปยัง Global Configuration mode",
+        cisco_cmd4_n: "ตั้งค่า IP ให้ Interface",
+        cisco_cmd4_d: "กำหนดที่อยู่ IP และ Subnet ให้กับพอร์ตที่เลือก",
+        cisco_cmd5_n: "บันทึกการตั้งค่า",
+        cisco_cmd5_d: "คัดลอก Running config ไปยัง Startup config เพื่อป้องกันข้อมูลหายเมื่อปิดเครื่อง",
+        cisco_cat4: "การจัดการ VLAN (VLAN Management)",
+        cisco_cmd6_n: "สร้าง VLAN",
+        cisco_cmd6_d: "สร้าง VLAN ID และตั้งชื่อกลุ่ม",
+        cisco_cmd7_n: "กำหนดพอร์ตเข้า VLAN",
+        cisco_cmd7_d: "ตั้งค่า Interface ให้เป็น Access mode และระบุ VLAN",
+        cisco_cmd8_n: "ตรวจสอบ VLAN",
+        cisco_cmd8_d: "แสดงรายการ VLAN ทั้งหมดที่ตั้งค่าไว้แบบย่อ",
+        cisco_cat5: "การตั้งค่าเส้นทาง (Routing Configuration)",
+        cisco_cmd9_n: "สร้าง Static Route",
+        cisco_cmd9_d: "กำหนดเส้นทางไปยังเครือข่ายปลายทางแบบระบุเอง",
+        cisco_cmd10_n: "สร้าง Default Route",
+        cisco_cmd10_d: "กำหนดทางออกพื้นฐานสำหรับข้อมูลที่ไม่มีในตารางเส้นทาง",
+        cisco_cmd11_n: "ตรวจสอบตารางเส้นทาง",
+        cisco_cmd11_d: "แสดงข้อมูลเส้นทางทั้งหมดที่ Router รู้จัก (IP Routing Table)",
+        osi_title: "โมเดล OSI 7 เลเยอร์",
+        osi_desc: "โครงสร้างมาตรฐานสำหรับการสื่อสารภายในเครือข่ายคอมพิวเตอร์",
+        osi_l7_t: "เลเยอร์ 7: Application",
+        osi_l7_d: "ส่วนติดต่อกับผู้ใช้และซอฟต์แวร์ (HTTP, FTP, SMTP)",
+        osi_l6_t: "เลเยอร์ 6: Presentation",
+        osi_l6_d: "การจัดรูปแบบข้อมูล การเข้ารหัส และการบีบอัด (JPEG, ASCII, GIF)",
+        osi_l5_t: "เลเยอร์ 5: Session",
+        osi_l5_d: "การสร้างและควบคุมการเชื่อมต่อระหว่างเครื่อง (NetBIOS, RPC)",
+        osi_l4_t: "เลเยอร์ 4: Transport",
+        osi_l4_d: "การส่งข้อมูลแบบ End-to-End (TCP, UDP) พร้อมควบคุมความผิดพลาด",
+        osi_l3_t: "เลเยอร์ 3: Network",
+        osi_l3_d: "การเลือกเส้นทางและการกำหนดที่อยู่หลัก (IP Address, Routers)",
+        osi_l2_t: "เลเยอร์ 2: Data Link",
+        osi_l2_d: "การส่งข้อมูลภายในวงแลนเดียวกัน (MAC Address, Switches)",
+        osi_l1_t: "เลเยอร์ 1: Physical",
+        osi_l1_d: "โครงสร้างพื้นฐานทางกายภาพ สายเคเบิล และสัญญาณไฟฟ้า (Fiber, RS-232)",
     },
     en: {
         nav_about: "About",
@@ -147,6 +206,7 @@ const translations = {
         nav_cooling: "Cooling",
         nav_fault: "Fault Tolerance",
         nav_availability: "Availability",
+        nav_env: "Environment",
         nav_network: "Network",
         nav_calc: "IP Calculator",
         nav_contact: "Contact",
@@ -184,12 +244,14 @@ const translations = {
         dc_pillar3_d: "Goal is <strong>No Single Point of Failure</strong>. Every component and cable must be compartmentalized and physically separated.",
         dc_pillar4_t: "Availability",
         dc_pillar4_d: "Aims for <strong>99.995% uptime</strong>, allowing for <strong>Concurrent Maintainability</strong> without any system downtime.",
-        infra_title: "Critical Infrastructure Breakdown",
+        infra_title: "Electrical System",
         table_h_item: "#",
         table_h_comp: "Component",
         table_h_desc: "Key Function & Purpose",
         infra_item1_n: "ATS",
-        infra_item1_d: "Switches power between utility and generator automatically.",
+        infra_item1_d: "Automatically switches power between utility and generator (Transfer time in seconds).",
+        infra_item_sts_n: "STS (Static Transfer Switch)",
+        infra_item_sts_d: "High-speed switching (milliseconds) between two independent UPS sources for zero downtime.",
         infra_item2_n: "Generator",
         infra_item2_d: "Backup power source during long-term utility outages.",
         infra_item3_n: "UPS & Batteries",
@@ -200,6 +262,9 @@ const translations = {
         infra_item6_d: "The core servers, storage, and networking hardware.",
         infra_item7_n: "CRAH",
         infra_item7_d: "Unit that manages temperature and airflow at the rack level.",
+        power_detail_title: "Deep Dive: ATS vs STS",
+        ats_detail: "Switches between Utility and Generator. It has a transfer delay (seconds), which is acceptable for mechanical components like Chillers.",
+        sts_detail: "Uses power semiconductors for ultra-fast switching (under 4-5ms) between two UPS sources. Vital for 'Single-Corded' IT equipment to prevent rebooting during a feed failure.",
         cooling_title: "Cooling Systems",
         cooling_subtitle: "Comparing CRAC & CRAH: The precision cooling technologies for hardware longevity.",
         cooling_card1_t: "CRAC",
@@ -254,6 +319,14 @@ const translations = {
         av_card2_d: "Utilizing advanced monitoring and automated failover systems to maintain constant service.",
         av_card3_t: "Hyperscale SLAs",
         av_card3_d: "Providing service level guarantees tailored for large-scale data center environments.",
+        env_title: "Data Center Environment",
+        env_subtitle: "Optimizing the Physical Infrastructure for Tier 4 Reliability and Longevity",
+        env_card1_t: "ASHRAE Standards",
+        env_card1_d: "Maintaining precise temperature (18-27°C) and relative humidity (40-60% RH) to prevent hardware failure and static electricity.",
+        env_card2_t: "Fire Suppression",
+        env_card2_d: "Utilizing VESDA for early detection and Clean Agent (FM-200/Novec 1230) to extinguish fire without damaging IT equipment.",
+        env_card3_t: "Physical Security",
+        env_card3_d: "Multi-layered security including Biometrics, CCTV, and Man-traps to ensure only authorized personnel can access critical areas.",
         contact_title: "Contact Me",
         contact_p: "Thank you for your interest. You can contact me via the channels below.",
         contact_btn: "Email Me",
@@ -278,6 +351,51 @@ const translations = {
         calc_class: "Network Class",
         calc_usage_title: "Technical Insight",
         footer: "&copy; <span id='year'></span> natthaphong Meesawad. Thank you for this valuable opportunity.",
+        cisco_title: "Common Cisco Commands",
+        cisco_desc: "Essential commands for managing Cisco Network devices",
+        cisco_cat1: "Verification",
+        cisco_cat2: "Configuration",
+        cisco_cat3: "Maintenance",
+        cisco_cmd1_n: "Check Interface Status",
+        cisco_cmd1_d: "Show summary of IP, Status, and Protocol for all interfaces",
+        cisco_cmd2_n: "View Running Config",
+        cisco_cmd2_d: "Display all current configurations active in RAM",
+        cisco_cmd3_n: "Enter Config Mode",
+        cisco_cmd3_d: "Switch from Exec mode to Global Configuration mode",
+        cisco_cmd4_n: "Assign IP to Interface",
+        cisco_cmd4_d: "Set IP address and Subnet Mask for a specific port",
+        cisco_cmd5_n: "Save Configuration",
+        cisco_cmd5_d: "Copy Running config to Startup config to prevent data loss on reboot",
+        cisco_cat4: "VLAN Management",
+        cisco_cmd6_n: "Create VLAN",
+        cisco_cmd6_d: "Create a VLAN ID and assign a name",
+        cisco_cmd7_n: "Assign Port to VLAN",
+        cisco_cmd7_d: "Set interface to Access mode and assign to VLAN",
+        cisco_cmd8_n: "Verify VLANs",
+        cisco_cmd8_d: "Display brief summary of all configured VLANs",
+        cisco_cat5: "Routing Configuration",
+        cisco_cmd9_n: "Static Routing",
+        cisco_cmd9_d: "Manually configure a path to a specific destination network",
+        cisco_cmd10_n: "Default Route",
+        cisco_cmd10_d: "Set the gateway of last resort for all unknown traffic",
+        cisco_cmd11_n: "Check Routing Table",
+        cisco_cmd11_d: "Display the current IP routing table entries",
+        osi_title: "OSI 7-Layer Model",
+        osi_desc: "Standard framework for network communication and protocols",
+        osi_l7_t: "Layer 7: Application",
+        osi_l7_d: "Interfaces with users and software (HTTP, FTP, SMTP)",
+        osi_l6_t: "Layer 6: Presentation",
+        osi_l6_d: "Data formatting, encryption, and compression (JPEG, ASCII, GIF)",
+        osi_l5_t: "Layer 5: Session",
+        osi_l5_d: "Managing and controlling connections (NetBIOS, RPC)",
+        osi_l4_t: "Layer 4: Transport",
+        osi_l4_d: "End-to-end data delivery (TCP, UDP) with error control",
+        osi_l3_t: "Layer 3: Network",
+        osi_l3_d: "Routing and logical addressing (IP Address, Routers)",
+        osi_l2_t: "Layer 2: Data Link",
+        osi_l2_d: "Data transfer within local networks (MAC Address, Switches)",
+        osi_l1_t: "Layer 1: Physical",
+        osi_l1_d: "Physical infrastructure, cables, and electrical signals (Fiber, RS-232)",
     }
 };
 
@@ -310,9 +428,53 @@ function setLanguage(lang) {
     if (yearEl) yearEl.innerText = new Date().getFullYear();
 }
 
+// Load Navbar Component
+async function loadNavbar() {
+    const nav = document.getElementById('main-nav');
+    if (!nav) return;
+    
+    try {
+        const response = await fetch('navbar.html');
+        const content = await response.text();
+        nav.innerHTML = content;
+        
+        // Re-apply language to newly loaded elements
+        const savedLang = localStorage.getItem('selectedLang') || 'en';
+        setLanguage(savedLang);
+    } catch (error) {
+        console.error('Error loading navbar:', error);
+    }
+}
+
+// Load Footer Component
+async function loadFooter() {
+    const footer = document.getElementById('main-footer');
+    if (!footer) return;
+    
+    try {
+        const response = await fetch('footer.html');
+        const content = await response.text();
+        footer.innerHTML = content;
+        
+        // Update year immediately after loading
+        const yearEl = document.getElementById('year');
+        if (yearEl) yearEl.innerText = new Date().getFullYear();
+        
+        // Re-apply language
+        const savedLang = localStorage.getItem('selectedLang') || 'en';
+        setLanguage(savedLang);
+    } catch (error) {
+        console.error('Error loading footer:', error);
+    }
+}
+
 // Global Initialization
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Initial Language Load
+    // 1. Initial Component Load
+    loadNavbar();
+    loadFooter();
+    
+    // 2. Initial Language Load
     const savedLang = localStorage.getItem('selectedLang') || 'en';
     setLanguage(savedLang);
 
@@ -354,7 +516,51 @@ document.addEventListener('DOMContentLoaded', () => {
             link.style.color = link.getAttribute('href').includes(current) ? 'var(--primary)' : 'var(--text-dim)';
         });
     });
+
+    // 5. Image Zoom / Lightbox Logic
+    initImageZoom();
 });
+
+function initImageZoom() {
+    // Create modal elements
+    const modal = document.createElement('div');
+    modal.className = 'img-modal';
+    modal.innerHTML = `
+        <span class="img-modal-close">&times;</span>
+        <img class="img-modal-content">
+    `;
+    document.body.appendChild(modal);
+
+    const modalImg = modal.querySelector('.img-modal-content');
+    const closeBtn = modal.querySelector('.img-modal-close');
+
+    // Add trigger class to content images
+    const contentImages = document.querySelectorAll('.device-thumb, .power-diagram, .cooling-diagram');
+    contentImages.forEach(img => {
+        img.classList.add('image-zoom-trigger');
+        img.addEventListener('click', () => {
+            modal.classList.add('active');
+            modalImg.src = img.src;
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+        });
+    });
+
+    // Close on click or X
+    const closeModal = () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    // Press ESC to close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+    });
+}
 
 // Dynamic Reveal CSS Injection
 const style = document.createElement('style');
